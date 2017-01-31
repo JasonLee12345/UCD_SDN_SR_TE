@@ -17,11 +17,8 @@ public class TopologyNodeDetails {
 	}
 	
 	public TopologyNodeDetails(String type) {
+		this();
 		this.type = type;
-		this.country = "";
-		this.city = "";
-		this.longitude = 0.0;
-		this.latitude = 0.0;
 	}
 	
 	public TopologyNodeDetails(String type, String country, String city) {

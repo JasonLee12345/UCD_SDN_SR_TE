@@ -22,8 +22,8 @@ public class Main {
 		ArrayList<Object> rawLinks = Utilities.readJSONFileAsArrays(linksFile);
 		HashMap<String, Object> rawFlows = Utilities.readJSONFileAsPairs(flowsFile);
 		
-		TopologyBuilder topo = new TopologyBuilder(rawNodes, rawLinks);
-		FlowBuilder flow = new FlowBuilder(rawFlows);
+		TopologyBuilder topologyBuilder = new TopologyBuilder(rawNodes, rawLinks);
+		FlowBuilder flowBuilder = new FlowBuilder(rawFlows);
 		
 		
 		

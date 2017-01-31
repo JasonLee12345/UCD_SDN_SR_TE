@@ -33,48 +33,27 @@ public class TopologyEdgeDetails {
 	}
 	
 	public TopologyEdgeDetails(double allo, double capa, String id) {
+		this();
 		this.allocated = allo;
 		this.capacity = capa;
-		this.flow = new ArrayList<Object>();
 		this.id = id;
-		this.view = "";
-		
-		this.dst_mac = "";
-		this.dst_port = "";
-		this.dst_port_no = "";
-		this.src_mac = "";
-		this.src_port = "";
-		this.src_port_no = "";
 	}
 	
 	public TopologyEdgeDetails(double allo, double capa, String id, String view) {
+		this();
 		this.allocated = allo;
 		this.capacity = capa;
-		this.flow = new ArrayList<Object>();
 		this.id = id;
 		this.view = view;
-		
-		this.dst_mac = "";
-		this.dst_port = "";
-		this.dst_port_no = "";
-		this.src_mac = "";
-		this.src_port = "";
-		this.src_port_no = "";
 	}
 	
 	public TopologyEdgeDetails(double allo, double capa, ArrayList<Object> flow, String id, String view) {
+		this();
 		this.allocated = allo;
 		this.capacity = capa;
 		this.flow = flow;
 		this.id = id;
 		this.view = view;
-		
-		this.dst_mac = "";
-		this.dst_port = "";
-		this.dst_port_no = "";
-		this.src_mac = "";
-		this.src_port = "";
-		this.src_port_no = "";
 	}
 	
 	public void setAllocated(double allo) { this.allocated = allo; }
