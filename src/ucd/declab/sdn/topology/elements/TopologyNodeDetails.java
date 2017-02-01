@@ -1,12 +1,14 @@
 package ucd.declab.sdn.topology.elements;
 
+import com.google.gson.annotations.SerializedName;
+
 public class TopologyNodeDetails {
 
 	private String type;
 	private String country;
 	private String city;
-	private double longitude;
-	private double latitude;
+	@SerializedName("x") private double longitude;
+	@SerializedName("y") private double latitude;
 
 	public TopologyNodeDetails() {
 		this.type = "";

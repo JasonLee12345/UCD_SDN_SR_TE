@@ -2,11 +2,13 @@ package ucd.declab.sdn.topology.elements;
 
 import java.util.ArrayList;
 
+import com.google.gson.annotations.SerializedName;
+
 public class TopologyEdgeDetails {
 
 	private double allocated;
 	private double capacity;
-	private ArrayList<Object> flow;
+	private ArrayList<Object> flows;
 	private String id;
 	private String view;
 	
@@ -20,7 +22,7 @@ public class TopologyEdgeDetails {
 	public TopologyEdgeDetails() {
 		this.allocated = 0.0;
 		this.capacity = 0.0;
-		this.flow = new ArrayList<Object>();
+		this.flows = new ArrayList<Object>();
 		this.id = "";
 		this.view = "";
 		
@@ -47,18 +49,18 @@ public class TopologyEdgeDetails {
 		this.view = view;
 	}
 	
-	public TopologyEdgeDetails(double allo, double capa, ArrayList<Object> flow, String id, String view) {
+	public TopologyEdgeDetails(double allo, double capa, ArrayList<Object> flows, String id, String view) {
 		this();
 		this.allocated = allo;
 		this.capacity = capa;
-		this.flow = flow;
+		this.flows = flows;
 		this.id = id;
 		this.view = view;
 	}
 	
 	public void setAllocated(double allo) { this.allocated = allo; }
 	public void setCapacity(double capa) { this.capacity = capa; }
-	public void setFlow(ArrayList<Object> flow) { this.flow = flow; }
+	public void setFlows(ArrayList<Object> flows) { this.flows = flows; }
 	public void setId(String id) { this.id = id; }
 	public void setView(String view) { this.view = view; }
 	
@@ -71,7 +73,7 @@ public class TopologyEdgeDetails {
 	
 	public double getAllocated() { return this.allocated; }
 	public double getCapacity() { return this.capacity; }
-	public ArrayList<Object> getFlow() { return this.flow; }
+	public ArrayList<Object> getFlows() { return this.flows; }
 	public String getId() { return this.id; }
 	public String getView() { return this.view; }
 	
