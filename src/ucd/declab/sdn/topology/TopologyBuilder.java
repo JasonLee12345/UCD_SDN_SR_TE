@@ -8,7 +8,7 @@ import ucd.declab.sdn.topology.elements.*;
 
 public class TopologyBuilder {
 	
-	private TopologyCollection topology;
+	private Topology topology;
 	
 	public TopologyBuilder (ArrayList<Object> rawNodes, ArrayList<Object> rawLinks) {
 		ArrayList<TopologyNode> nodes = extractNodesInfoFromRawNodes(rawNodes);
@@ -31,7 +31,7 @@ public class TopologyBuilder {
 			System.out.println(" ");
 		}*/
 		
-		topology = new TopologyCollection(nodes, edges);
+		topology = new Topology(nodes, edges);
 	}
 	
 	/** Return a set of topology nodes, from a specified TopologyCatalogue
@@ -69,5 +69,5 @@ public class TopologyBuilder {
 		return retEdges;
 	}
 	
-	public TopologyCollection getTopologyCollection() { return this.topology; }
+	public Topology getTopology() { return this.topology; }
 }

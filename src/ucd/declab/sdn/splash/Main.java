@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 import ucd.declab.sdn.flow.FlowBuilder;
 import ucd.declab.sdn.topology.*;
-import ucd.declab.sdn.topology.elements.TopologyCollection;
+import ucd.declab.sdn.topology.elements.*;
 import ucd.declab.sdn.utils.Utilities;
 
 public class Main {
@@ -24,7 +24,7 @@ public class Main {
 		HashMap<String, Object> rawFlows = Utilities.readJSONFileAsPairs(flowsFile);
 		
 		TopologyBuilder topologyBuilder = new TopologyBuilder(rawNodes, rawLinks);
-		TopologyCollection topology = topologyBuilder.getTopologyCollection();
+		Topology topology = topologyBuilder.getTopology();
 		
 		FlowBuilder flowBuilder = new FlowBuilder(rawFlows);
 		
