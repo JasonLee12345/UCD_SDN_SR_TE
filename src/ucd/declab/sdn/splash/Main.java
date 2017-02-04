@@ -27,6 +27,17 @@ public class Main {
 		TopologyBuilder topologyBuilder = new TopologyBuilder(rawNodes, rawLinks);
 		TopologyCollection topoCollection = topologyBuilder.getTopologyCollection();
 		
+		/*
+		for (Vertex vertex : topoCollection.getVertices()) {
+			System.out.println(vertex.getLabel());
+		}*/
+		/*
+		for (Link link : topoCollection.getLinks()) {
+			System.out.println(link.getLabel());
+			System.out.println(link.getV1());
+			System.out.println(link.getV2() + "\n");
+		}*/
+		
 		FlowBuilder flowBuilder = new FlowBuilder(rawFlows);
 		
 		
