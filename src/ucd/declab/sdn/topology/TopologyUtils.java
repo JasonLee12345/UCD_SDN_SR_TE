@@ -3,6 +3,7 @@ package ucd.declab.sdn.topology;
 import java.util.ArrayList;
 import java.util.Random;
 
+import ucd.declab.sdn.graph.GraphUtils;
 import ucd.declab.sdn.topology.elements.Topology;
 import ucd.declab.sdn.topology.elements.TopologyEdge;
 import ucd.declab.sdn.topology.elements.TopologyEdgeDetails;
@@ -14,20 +15,6 @@ import ucd.declab.sdn.topology.extracts.Vertex;
 import com.google.gson.Gson;
 
 public class TopologyUtils {
-
-	public static final String CORE_ROUTER = "OSHICR";
-	public static final String PROVIDER_EDGE_ROUTER = "OSHIPE";
-	public static final String CUSTOMER_EDGE_ROUTER = "CE";
-	
-	public static final String ATTRIBUTE_NODE_TYPE = "node_type";
-	
-	public static final String ATTRIBUTE_EDGE_LABEL = "edge_label";
-	public static final String ATTRIBUTE_EDGE_TYPE = "edge_type";
-	public static final String ATTRIBUTE_EDGE_CAPACITY = "edge_capacity";
-	public static final String ATTRIBUTE_EDGE_LOAD = "edge_load";
-	public static final String ATTRIBUTE_EDGE_COST = "edge_cost";
-	public static final String ATTRIBUTE_EDGE_LENGTH = "edge_length";
-	
 	
 	/** Return a set of topology nodes, from a specified TopologyCatalogue
 	 * @param rawNodes, read data from the JSON file
@@ -74,7 +61,7 @@ public class TopologyUtils {
 		
 		for (TopologyEdge te : topo.getEdges()) {
 			if (!tmp.contains(te.getSrc())) {
-				Vertex v = new Vertex(te.getSrc(), TopologyUtils.CORE_ROUTER);
+				Vertex v = new Vertex(te.getSrc(), GraphUtils.CORE_ROUTER);
 				v.setX(new Random().nextDouble() * 200.0);
 				v.setY(new Random().nextDouble() * 200.0);
 				vertices.add(v);
@@ -83,7 +70,7 @@ public class TopologyUtils {
 			}
 			
 			if (!tmp.contains(te.getDst())) {
-				Vertex v = new Vertex(te.getDst(), TopologyUtils.CORE_ROUTER);
+				Vertex v = new Vertex(te.getDst(), GraphUtils.CORE_ROUTER);
 				v.setX(new Random().nextDouble() * 200.0);
 				v.setY(new Random().nextDouble() * 200.0);
 				vertices.add(v);

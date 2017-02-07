@@ -72,4 +72,32 @@ public class Utilities {
 		
 		return file;
 	}
+	
+	/** Mainly used for reading CSS files
+	 * 
+	 */
+	public static String readFile(String file) {
+		String content = "";
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(file));
+	    
+	        StringBuilder sb = new StringBuilder();
+	        String line = br.readLine();
+
+	        while (line != null) {
+	            sb.append(line);
+	            sb.append(System.lineSeparator());
+	            line = br.readLine();
+	        }
+	        
+	        content = sb.toString();
+	        
+	        br.close();
+	    }
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	    
+	    return content;
+	}
 }

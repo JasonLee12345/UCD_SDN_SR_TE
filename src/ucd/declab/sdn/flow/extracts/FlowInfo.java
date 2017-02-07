@@ -38,28 +38,23 @@ public class FlowInfo {
 		this(flowID, nodeSrc, nodeDest, bandwidth);
 		this.path = p;
 	}
-
-	public String getId() { return this.id; }
-	public void setId(String flowID) { this.id = flowID; }
-
-	public String getNodeSource() { return this.nodeSource; }
-	public void setNodeSource(String nodeSrc) { this.nodeSource = nodeSrc; }
-
-	public String getNodeDestination() { return this.nodeDestination; }
-	public void setNodeDestination(String nodeDest) { this.nodeDestination = nodeDest; }
-
-	public double getBandwidth() { return this.bandwidth; }
-	public void setBandwidth(double bandwidth) { this.bandwidth = bandwidth; }
 	
-	public Path getPath() { return this.path; }
+	public void setId(String flowID) { this.id = flowID; }
+	public void setNodeSource(String nodeSrc) { this.nodeSource = nodeSrc; }
+	public void setNodeDestination(String nodeDest) { this.nodeDestination = nodeDest; }
+	public void setBandwidth(double bandwidth) { this.bandwidth = bandwidth; }
 	public void setPath(Path p) { this.path = p; }
-
-	public String getRelationID() { return this.relationID; }
 	public void setRelationID(String relationID) { this.relationID = relationID; }
-
-	public String getRelationType() { return this.relationType; }
 	public void setRelationType(String relationType) { this.relationType = relationType; }
 
+	public String getId() { return this.id; }
+	public String getNodeSource() { return this.nodeSource; }
+	public String getNodeDestination() { return this.nodeDestination; }
+	public double getBandwidth() { return this.bandwidth; }
+	public Path getPath() { return this.path; }
+	public String getRelationID() { return this.relationID; }
+	public String getRelationType() { return this.relationType; }
+	
 	public void addEdgeToPath(Edge e) { this.path.add(e); }
 	
 	public String toString() {
