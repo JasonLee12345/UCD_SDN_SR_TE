@@ -32,7 +32,7 @@ public class Main {
 		TopologyBuilder topologyBuilder = new TopologyBuilder(rawNodes, rawLinks);
 		TopologyCollection topoCollection = topologyBuilder.getTopologyCollection();
 		
-		/* For testing purposes.
+		/*//For testing purposes.
 		for (Vertex vertex : topoCollection.getVertices()) {
 			System.out.println(vertex.getLabel());
 		}*/
@@ -46,7 +46,7 @@ public class Main {
 		FlowBuilder flowBuilder = new FlowBuilder(rawFlows);
 		FlowCollection flowCollection = flowBuilder.getFlowCollection();
 		
-		/* For testing purposes.
+		/* //For testing purposes.
 		for (FlowInfo flowInfo : flowCollection) {
 			System.out.println(flowInfo.getId());
 			System.out.println(flowInfo.getBandwidth());
@@ -58,6 +58,7 @@ public class Main {
 		}*/
 		
 		GraphBuilder graphBuilder = new GraphBuilder(topoCollection);
+		graphBuilder.buildGraphStreamTopology();
 		graphBuilder.displayPoorGraph(graphBuilder.getGraph(), false);
 		
 	}

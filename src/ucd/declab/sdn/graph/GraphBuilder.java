@@ -9,7 +9,7 @@ import org.graphstream.graph.implementations.MultiGraph;
 import org.graphstream.ui.view.Viewer;
 
 import ucd.declab.sdn.topology.extracts.*;
-import ucd.declab.sdn.utils.Utilities;
+import ucd.declab.sdn.utils.*;
 import ucd.declab.sdn.flow.extracts.*;
 
 public class GraphBuilder {
@@ -18,8 +18,7 @@ public class GraphBuilder {
 	private ArrayList<Vertex> vertices;
 	private ArrayList<Link> links;
 	private FlowCollection flowCollection;
-	
-	private boolean directedEdge = true;
+	private boolean isDirectedEdge = true;
 	
 	public GraphBuilder(TopologyCollection topoCollection) {
 		this.vertices = topoCollection.getVertices();
@@ -32,105 +31,111 @@ public class GraphBuilder {
 		this.flowCollection = flowCollection;
 	}
 	
+	
+	/** Build the GraphStream graph from the collection
+	 * 
+	 */
 	public void buildGraphStreamTopology() {
 		this.graph = new MultiGraph("Test_MultiGraph");
 		
 		for (Vertex vertex : this.vertices) {
 			Node n = this.graph.addNode(vertex.getLabel());
-			n.setAttribute(GraphUtils.ATTRIBUTE_NODE_TYPE, vertex.getType());
+			n.setAttribute(Constants.ATTRIBUTE_NODE_TYPE, vertex.getType());
 			n.setAttribute("x", vertex.getX());
 			n.setAttribute("y", vertex.getY());
 		}
 		
 		for (Link link : this.links) {
-			String id = link.getLabel();
-			Edge e = this.graph.addEdge(id, link.getV1(), link.getV2(), directedEdge);
-			e.addAttribute(GraphUtils.ATTRIBUTE_EDGE_LABEL, link.getLabel());
-			e.addAttribute(GraphUtils.ATTRIBUTE_EDGE_TYPE, link.getType());
-			e.addAttribute(GraphUtils.ATTRIBUTE_EDGE_CAPACITY, link.getCapacity());
-			e.addAttribute(GraphUtils.ATTRIBUTE_EDGE_LOAD, link.getLoad());
+			Edge e = this.graph.addEdge(link.getLabel(), link.getV1(), link.getV2(), isDirectedEdge);
+			e.addAttribute(Constants.ATTRIBUTE_EDGE_LABEL, link.getLabel());
+			e.addAttribute(Constants.ATTRIBUTE_EDGE_TYPE, link.getType());
+			e.addAttribute(Constants.ATTRIBUTE_EDGE_CAPACITY, link.getCapacity());
+			e.addAttribute(Constants.ATTRIBUTE_EDGE_LOAD, link.getLoad());
 		}
 	}
+	
 	
 	/**
 	 * Display the network topology using a graph-based representation
 	 * @param k the graph to be represented with the library
 	 * @param disableAutolayout manage the GraphStream autolayout
 	 */
-	public void displayGraph(Graph g, boolean disableAutolayout) {
-		if (g == null) {
+	public void displayGraph(Graph graph, boolean disableAutolayout) {
+		if (graph == null) {
+			System.err.println("Graph isn't initialized...");
 			System.exit(-1);
 		}
 		
 		String stylesheet = Utilities.readFile("css/graph.css");
 		
-		g.addAttribute("ui.stylesheet", stylesheet);
+		graph.addAttribute("ui.stylesheet", stylesheet);
 		
-		for (Node n : g.getNodeSet()) {
+		for (Node n : graph.getNodeSet()) {
 			n.addAttribute("ui.label", n.getId());
-			String type = n.getAttribute(GraphUtils.ATTRIBUTE_NODE_TYPE);
-			if (type.equals(GraphUtils.CORE_ROUTER)) {
+			String type = n.getAttribute(Constants.ATTRIBUTE_NODE_TYPE);
+			if (type.equals(Constants.CORE_ROUTER)) {
 				n.addAttribute("ui.class", "cro");
 			}
-			else if (type.equals(GraphUtils.CUSTOMER_EDGE_ROUTER)) {
+			else if (type.equals(Constants.CUSTOMER_EDGE_ROUTER)) {
 				n.addAttribute("ui.class", "cer");
 			}
-			else if (type.equals(GraphUtils.PROVIDER_EDGE_ROUTER)) {
+			else if (type.equals(Constants.PROVIDER_EDGE_ROUTER)) {
 				n.addAttribute("ui.class", "per");
 			}
 		}
 		
-		for (Edge e : g.getEdgeSet()) {
-			e.addAttribute("ui.label", e.getAttribute(GraphUtils.ATTRIBUTE_EDGE_LOAD) + " / " + e.getAttribute(GraphUtils.ATTRIBUTE_EDGE_CAPACITY));
+		for (Edge e : graph.getEdgeSet()) {
+			e.addAttribute("ui.label", e.getAttribute(Constants.ATTRIBUTE_EDGE_LOAD) + " / " + e.getAttribute(Constants.ATTRIBUTE_EDGE_CAPACITY));
 		}
 		
 		System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 		
-		Viewer viewer = g.display();
+		Viewer viewer = graph.display();
 		
 		if (disableAutolayout) {
 			viewer.disableAutoLayout();
 		}
 	}
+	
 	
 	/**
 	 * Display the network topology using a POOR graph-based representation
 	 * @param k the graph to be represented with the library
 	 * @param disableAutolayout manage the GraphStream autolayout
 	 */
-	public void displayPoorGraph(Graph k, boolean disableAutolayout) {
-		if (k == null) {
+	public void displayPoorGraph(Graph graph, boolean disableAutolayout) {
+		if (graph == null) {
+			System.err.println("Graph isn't initialized...");
 			System.exit(-1);
 		}
 		
 		String stylesheet = Utilities.readFile("css/graph.css");
+		graph.addAttribute("ui.stylesheet", stylesheet);
 		
-		k.addAttribute("ui.stylesheet", stylesheet);
-		
-		for (Node n : k.getNodeSet()) {
-			String type = n.getAttribute(GraphUtils.ATTRIBUTE_NODE_TYPE);
-			if (type.equals(GraphUtils.CORE_ROUTER)) {
+		for (Node n : graph.getNodeSet()) {
+			String type = n.getAttribute(Constants.ATTRIBUTE_NODE_TYPE);
+			if (type.equals(Constants.CORE_ROUTER)) {
 				n.addAttribute("ui.class", "cro");
 			}
-			else if (type.equals(GraphUtils.CUSTOMER_EDGE_ROUTER)) {
+			else if (type.equals(Constants.CUSTOMER_EDGE_ROUTER)) {
 				n.addAttribute("ui.class", "cer");
 			}
-			else if (type.equals(GraphUtils.PROVIDER_EDGE_ROUTER)) {
+			else if (type.equals(Constants.PROVIDER_EDGE_ROUTER)) {
 				n.addAttribute("ui.class", "per");
 			}
 		}
 		
 		System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 		
-		Viewer viewer = k.display();
+		Viewer viewer = graph.display();
 		
 		if (disableAutolayout) {
 			viewer.disableAutoLayout();
 		}
 	}
 	
-	public void setDirectedEdge(boolean directed) { this.directedEdge = directed; }
+	public void setDirectedEdge(boolean directed) { this.isDirectedEdge = directed; }
 	
-	public boolean isDirectedEdge() { return this.directedEdge; }
+	public boolean isDirectedEdge() { return this.isDirectedEdge; }
 	public Graph getGraph() { return this.graph; }
 }

@@ -3,7 +3,6 @@ package ucd.declab.sdn.topology;
 import java.util.ArrayList;
 import java.util.Random;
 
-import ucd.declab.sdn.graph.GraphUtils;
 import ucd.declab.sdn.topology.elements.Topology;
 import ucd.declab.sdn.topology.elements.TopologyEdge;
 import ucd.declab.sdn.topology.elements.TopologyEdgeDetails;
@@ -11,6 +10,7 @@ import ucd.declab.sdn.topology.elements.TopologyNode;
 import ucd.declab.sdn.topology.elements.TopologyNodeDetails;
 import ucd.declab.sdn.topology.extracts.Link;
 import ucd.declab.sdn.topology.extracts.Vertex;
+import ucd.declab.sdn.utils.*;
 
 import com.google.gson.Gson;
 
@@ -61,7 +61,7 @@ public class TopologyUtils {
 		
 		for (TopologyEdge te : topo.getEdges()) {
 			if (!tmp.contains(te.getSrc())) {
-				Vertex v = new Vertex(te.getSrc(), GraphUtils.CORE_ROUTER);
+				Vertex v = new Vertex(te.getSrc(), Constants.CORE_ROUTER);
 				v.setX(new Random().nextDouble() * 200.0);
 				v.setY(new Random().nextDouble() * 200.0);
 				vertices.add(v);
@@ -70,7 +70,7 @@ public class TopologyUtils {
 			}
 			
 			if (!tmp.contains(te.getDst())) {
-				Vertex v = new Vertex(te.getDst(), GraphUtils.CORE_ROUTER);
+				Vertex v = new Vertex(te.getDst(), Constants.CORE_ROUTER);
 				v.setX(new Random().nextDouble() * 200.0);
 				v.setY(new Random().nextDouble() * 200.0);
 				vertices.add(v);

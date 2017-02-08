@@ -73,8 +73,9 @@ public class Utilities {
 		return file;
 	}
 	
+	
 	/** Mainly used for reading CSS files
-	 * 
+	 * @param file The name of the css file
 	 */
 	public static String readFile(String file) {
 		String content = "";
