@@ -74,13 +74,13 @@ public class GraphBuilder {
 			n.addAttribute("ui.label", n.getId());
 			String type = n.getAttribute(Constants.ATTRIBUTE_NODE_TYPE);
 			if (type.equals(Constants.CORE_ROUTER)) {
-				n.addAttribute("ui.class", "cro");
+				n.addAttribute("ui.class", "core_router");
 			}
 			else if (type.equals(Constants.CUSTOMER_EDGE_ROUTER)) {
-				n.addAttribute("ui.class", "cer");
+				n.addAttribute("ui.class", "customer_edge_router");
 			}
 			else if (type.equals(Constants.PROVIDER_EDGE_ROUTER)) {
-				n.addAttribute("ui.class", "per");
+				n.addAttribute("ui.class", "provider_edge_router");
 			}
 		}
 		
@@ -115,13 +115,13 @@ public class GraphBuilder {
 		for (Node n : graph.getNodeSet()) {
 			String type = n.getAttribute(Constants.ATTRIBUTE_NODE_TYPE);
 			if (type.equals(Constants.CORE_ROUTER)) {
-				n.addAttribute("ui.class", "cro");
+				n.addAttribute("ui.class", "core_router");
 			}
 			else if (type.equals(Constants.CUSTOMER_EDGE_ROUTER)) {
-				n.addAttribute("ui.class", "cer");
+				n.addAttribute("ui.class", "customer_edge_router");
 			}
 			else if (type.equals(Constants.PROVIDER_EDGE_ROUTER)) {
-				n.addAttribute("ui.class", "per");
+				n.addAttribute("ui.class", "provider_edge_router");
 			}
 		}
 		

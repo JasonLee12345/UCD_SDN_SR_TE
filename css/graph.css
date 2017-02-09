@@ -1,3 +1,9 @@
+graph {
+	canvas-color: black;
+	fill-mode: gradient-vertical;
+	fill-color: #001, #002;
+	padding: 20px;
+}
 node {
 	text-alignment: under;
 	text-background-mode: plain;
@@ -7,19 +13,28 @@ node {
 	text-padding: 3px;
 	text-offset: 0px, 3px;
 	fill-mode: plain;
-	size: 30px;
+	size: 25px;
 }
-node.cer {
-	fill-color: red;
+node:clicked {
+	fill-color: #F00A, #F000;
 }
-node.per {
-	fill-color: green;
+node.core_router {
+	shape: circle;
+	fill-mode: gradient-radial;
+	fill-color: white, #FFF0;
 }
-node.cro {
-	fill-color: blue;
+node.provider_edge_router {
+	shape: circle;
+	fill-mode: gradient-radial;
+	fill-color: orange, #FFF0;
+}
+node.customer_edge_router {
+	shape: circle;
+	fill-mode: gradient-radial;
+	fill-color: green, #FFF0;
 }
 edge {
-	size: 2px;
+	size: 1px;
 	text-alignment: center;
 	text-background-mode: plain;
 	text-background-color: #CFCFCF;
@@ -27,6 +42,7 @@ edge {
 	text-style: bold;
 	text-padding: 3px;
 	text-offset: 0px, 3px;
+	fill-color: white;
 }
 sprite {
 	shape: flow;
