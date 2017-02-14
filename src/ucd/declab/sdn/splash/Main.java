@@ -59,8 +59,10 @@ public class Main {
 		
 		GraphBuilder graphBuilder = new GraphBuilder(topoCollection);
 		graphBuilder.buildGraphStreamTopology();
-		//graphBuilder.displayPoorGraph(graphBuilder.getGraph(), false);
-		graphBuilder.displayGraph(graphBuilder.getGraph(), false);
+		
+		graphBuilder.displayPoorGraph(graphBuilder.getGraph(), false);
+		//graphBuilder.displayGraph(graphBuilder.getGraph(), false);
+		//graphBuilder.displayGraphWithFlows(graphBuilder.getGraph(), flowCollection, false);
 		
 	}
 	
