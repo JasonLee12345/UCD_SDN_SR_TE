@@ -3,7 +3,10 @@ package ucd.declab.sdn.splash;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.graphstream.graph.Graph;
+
 import ucd.declab.sdn.graph.*;
+import ucd.declab.sdn.flow.FlowAssignmentAlgorithm;
 import ucd.declab.sdn.flow.FlowBuilder;
 import ucd.declab.sdn.flow.extracts.*;
 import ucd.declab.sdn.topology.*;
@@ -29,6 +32,7 @@ public class Main {
 		ArrayList<Object> rawLinks = Utilities.readJSONFileAsArrays(linksFile);
 		HashMap<String, Object> rawFlows = Utilities.readJSONFileAsPairs(flowsFile);
 		
+		// Build the topolgy.
 		TopologyBuilder topologyBuilder = new TopologyBuilder(rawNodes, rawLinks);
 		TopologyCollection topoCollection = topologyBuilder.getTopologyCollection();
 		
@@ -43,6 +47,14 @@ public class Main {
 			System.out.println(link.getV2() + "\n");
 		}*/
 		
+		// Use the topology information to build a graph stucture.
+		GraphBuilder graphBuilder = new GraphBuilder(topoCollection);
+		graphBuilder.buildGraphStreamTopology();
+		
+		//graphBuilder.displayPoorGraph(graphBuilder.getGraph(), false);
+		//graphBuilder.displayGraph(graphBuilder.getGraph(), false);
+		
+		// Dealing with the flows.
 		FlowBuilder flowBuilder = new FlowBuilder(rawFlows);
 		FlowCollection flowCollection = flowBuilder.getFlowCollection();
 		
@@ -57,12 +69,20 @@ public class Main {
 			System.out.println();
 		}*/
 		
-		GraphBuilder graphBuilder = new GraphBuilder(topoCollection);
-		graphBuilder.buildGraphStreamTopology();
+		long deltaTimeFlowAssignment;
+		long deltaTimeSegmentRouting;
 		
-		//graphBuilder.displayPoorGraph(graphBuilder.getGraph(), false);
-		graphBuilder.displayGraph(graphBuilder.getGraph(), false);
-		//graphBuilder.displayGraphWithFlows(graphBuilder.getGraph(), flowCollection, false);
+		FlowAssignmentAlgorithm faa = new FlowAssignmentAlgorithm();
+		faa.init(graphBuilder.getGraph());
+		faa.setTrafficFlows(flowCollection);
+		deltaTimeFlowAssignment = System.currentTimeMillis();
+		faa.compute();
+		deltaTimeFlowAssignment = System.currentTimeMillis() - deltaTimeFlowAssignment;
+		faa.terminate();
+		
+		Graph finalGraph = faa.getUpdatedGraph();
+		FlowCollection finalTrafficFlowAssignment = faa.getFlowAssignment();
+		graphBuilder.displayGraphWithFlows(graphBuilder.getGraph(), finalTrafficFlowAssignment, false);
 		
 	}
 	
