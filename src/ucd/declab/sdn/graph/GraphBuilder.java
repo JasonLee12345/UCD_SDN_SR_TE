@@ -72,7 +72,6 @@ public class GraphBuilder {
 		}
 		
 		String stylesheet = Utilities.readFile("css/graph.css");
-		
 		graph.addAttribute("ui.stylesheet", stylesheet);
 		
 		for (Node n : graph.getNodeSet()) {

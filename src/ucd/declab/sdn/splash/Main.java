@@ -32,42 +32,22 @@ public class Main {
 		ArrayList<Object> rawLinks = Utilities.readJSONFileAsArrays(linksFile);
 		HashMap<String, Object> rawFlows = Utilities.readJSONFileAsPairs(flowsFile);
 		
+		
 		// Build the topolgy.
 		TopologyBuilder topologyBuilder = new TopologyBuilder(rawNodes, rawLinks);
 		TopologyCollection topoCollection = topologyBuilder.getTopologyCollection();
 		
-		/*//For testing purposes.
-		for (Vertex vertex : topoCollection.getVertices()) {
-			System.out.println(vertex.getLabel());
-		}*/
-		/*
-		for (Link link : topoCollection.getLinks()) {
-			System.out.println(link.getLabel());
-			System.out.println(link.getV1());
-			System.out.println(link.getV2() + "\n");
-		}*/
 		
 		// Use the topology information to build a graph stucture.
 		GraphBuilder graphBuilder = new GraphBuilder(topoCollection);
 		graphBuilder.buildGraphStreamTopology();
-		
 		//graphBuilder.displayPoorGraph(graphBuilder.getGraph(), false);
 		//graphBuilder.displayGraph(graphBuilder.getGraph(), false);
+		
 		
 		// Dealing with the flows.
 		FlowBuilder flowBuilder = new FlowBuilder(rawFlows);
 		FlowCollection flowCollection = flowBuilder.getFlowCollection();
-		
-		/* //For testing purposes.
-		for (FlowInfo flowInfo : flowCollection) {
-			System.out.println(flowInfo.getId());
-			System.out.println(flowInfo.getBandwidth());
-			System.out.println(flowInfo.getNodeDestination());
-			System.out.println(flowInfo.getNodeSource());
-			System.out.println(flowInfo.getRelationID());
-			System.out.println(flowInfo.getRelationType());
-			System.out.println();
-		}*/
 		
 		long deltaTimeFlowAssignment;
 		long deltaTimeSegmentRouting;
@@ -82,7 +62,7 @@ public class Main {
 		
 		Graph finalGraph = faa.getUpdatedGraph();
 		FlowCollection finalTrafficFlowAssignment = faa.getFlowAssignment();
-		graphBuilder.displayGraphWithFlows(graphBuilder.getGraph(), finalTrafficFlowAssignment, false);
+		graphBuilder.displayGraphWithFlows(finalGraph, finalTrafficFlowAssignment, false);
 		
 	}
 	

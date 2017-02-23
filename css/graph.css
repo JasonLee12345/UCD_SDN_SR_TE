@@ -46,7 +46,7 @@ edge {
 }
 sprite {
 	shape: flow;
-	size: 7px;
+	size: 4px;
 	z-index: 0;
 }
 sprite.S1 {
