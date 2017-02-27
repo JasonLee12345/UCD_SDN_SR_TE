@@ -46,24 +46,26 @@ edge {
 }
 sprite {
 	shape: flow;
-	size: 4px;
+	size: 3px;
 	z-index: 0;
 }
 sprite.S1 {
 	fill-color: #F00;
 }
-sprite.S4 {
-	fill-color: #0F0;
-}
 sprite.S2 {
 	fill-color: #00F;
-}
-sprite.S5 {
-	fill-color: #FF0;
 }
 sprite.S3 {
 	fill-color: #0FF;
 }
+sprite.S4 {
+	fill-color: #0F0;
+}
+
+sprite.S5 {
+	fill-color: #FF0;
+}
+
 sprite.S6 {
 	fill-color: #F0F;
 }

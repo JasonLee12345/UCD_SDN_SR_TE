@@ -59,6 +59,8 @@ public class Main {
 		faa.compute();
 		deltaTimeFlowAssignment = System.currentTimeMillis() - deltaTimeFlowAssignment;
 		faa.terminate();
+		System.out.println(deltaTimeFlowAssignment);
+		
 		
 		Graph finalGraph = faa.getUpdatedGraph();
 		FlowCollection finalTrafficFlowAssignment = faa.getFlowAssignment();
