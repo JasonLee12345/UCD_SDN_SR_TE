@@ -50,15 +50,16 @@ public class FlowUtils {
 			
 			if (in != null) {
 				double bandwidth = in.getSize();
+				String in_id;
 				
 				if (id != null) {
-					id = id + "_in";
+					in_id = id + "_in";
 				}
 				else {
-					id = src + dst + Integer.toString(new Random().nextInt(20000)) + "_in";
+					in_id = src + dst + Integer.toString(new Random().nextInt(20000)) + "_in";
 				}
 				
-				FlowInfo flowInfo = new FlowInfo(id, src, dst, bandwidth);
+				FlowInfo flowInfo = new FlowInfo(in_id, dst, src, bandwidth);
 				flowInfo.setRelationID(key);
 				flowInfo.setRelationType(FlowInfo.IN);
 				flowCollection.add(flowInfo);
@@ -66,15 +67,16 @@ public class FlowUtils {
 			
 			if (out != null) {
 				double bandwidth = out.getSize();
+				String out_id;
 				
 				if (id != null) {
-					id = id + "_out";
+					out_id = id + "_out";
 				}
 				else {
-					id = src + dst + Integer.toString(new Random().nextInt(20000)) + "_out";
+					out_id = src + dst + Integer.toString(new Random().nextInt(20000)) + "_out";
 				}
 				
-				FlowInfo flowInfo = new FlowInfo(id, src, dst, bandwidth);
+				FlowInfo flowInfo = new FlowInfo(out_id, src, dst, bandwidth);
 				flowInfo.setRelationID(key);
 				flowInfo.setRelationType(FlowInfo.OUT);
 				flowCollection.add(flowInfo);

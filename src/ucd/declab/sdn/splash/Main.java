@@ -3,6 +3,7 @@ package ucd.declab.sdn.splash;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 
 import ucd.declab.sdn.graph.*;
@@ -27,6 +28,7 @@ public class Main {
 		String nodesFile = arguments.get(Utilities.CMD_NODES);
 		String linksFile = arguments.get(Utilities.CMD_LINKS);
 		String flowsFile = arguments.get(Utilities.CMD_FLOWS);
+		boolean DEBUG = Boolean.parseBoolean(arguments.get(Utilities.DEBUG));
 		
 		ArrayList<Object> rawNodes = Utilities.readJSONFileAsArrays(nodesFile);
 		ArrayList<Object> rawLinks = Utilities.readJSONFileAsArrays(linksFile);
@@ -49,6 +51,7 @@ public class Main {
 		FlowBuilder flowBuilder = new FlowBuilder(rawFlows);
 		FlowCollection flowCollection = flowBuilder.getFlowCollection();
 		
+		// Flow Assignment Algorithm.
 		long deltaTimeFlowAssignment;
 		long deltaTimeSegmentRouting;
 		
@@ -66,6 +69,30 @@ public class Main {
 		FlowCollection finalTrafficFlowAssignment = faa.getFlowAssignment();
 		graphBuilder.displayGraphWithFlows(finalGraph, finalTrafficFlowAssignment, false);
 		
+		// Display the flow assignment results.
+		if (DEBUG) {
+			System.out.println();
+			System.out.println("FLOW ALLOCATION:");
+			System.out.println("\tID\t\tFlow\t\tBandwidth\t\tPath");
+			for (FlowInfo fi : finalTrafficFlowAssignment) {
+				System.out.print("\t" + fi.getId());
+				System.out.print("\t\t(" + fi.getNodeSource() + "," + fi.getNodeDestination() + ")");
+				System.out.print("\t\t" + fi.getBandwidth());
+				System.out.print("\t\t\t");
+				String path = "";
+				for (Edge e : fi.getPath().getEdgeSet()) {
+					path += "(" + e.getSourceNode() + "," + e.getTargetNode() + "),";				
+				}
+				if (path.length() > 0) {
+					System.out.print(path.substring(0, path.length() - 1));
+				}
+				else {
+					System.out.println("NO PATH!");
+				}
+				System.out.println();
+			}
+			System.out.println();
+		}
 	}
 	
 
