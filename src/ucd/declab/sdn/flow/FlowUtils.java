@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import org.graphstream.graph.Node;
+
 import com.google.gson.Gson;
 
 import ucd.declab.sdn.flow.elements.*;
@@ -150,4 +152,5 @@ public class FlowUtils {
 		
 		return flowCollection;
 	}
+	
 }

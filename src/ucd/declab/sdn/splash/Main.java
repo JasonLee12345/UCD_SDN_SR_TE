@@ -1,15 +1,19 @@
 package ucd.declab.sdn.splash;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+import org.graphstream.graph.Path;
 
 import ucd.declab.sdn.graph.*;
 import ucd.declab.sdn.flow.FlowAssignmentAlgorithm;
 import ucd.declab.sdn.flow.FlowBuilder;
 import ucd.declab.sdn.flow.extracts.*;
+import ucd.declab.sdn.segmentrouting.*;
 import ucd.declab.sdn.topology.*;
 import ucd.declab.sdn.topology.extracts.*;
 import ucd.declab.sdn.utils.Utilities;
@@ -62,8 +66,6 @@ public class Main {
 		faa.compute();
 		deltaTimeFlowAssignment = System.currentTimeMillis() - deltaTimeFlowAssignment;
 		faa.terminate();
-		//System.out.println(deltaTimeFlowAssignment);
-		
 		
 		Graph finalGraph = faa.getUpdatedGraph();
 		FlowCollection finalTrafficFlowAssignment = faa.getFlowAssignment();
@@ -71,8 +73,9 @@ public class Main {
 		
 		// Display the flow assignment results.
 		if (DEBUG) {
-			System.out.println();
-			System.out.println("FLOW ALLOCATION:");
+			System.out.println("FLOW ASSIGNMENT ALGORITHM:");
+			System.out.println("Time used for Flow Assignment: " + deltaTimeFlowAssignment);
+			
 			System.out.println("\tID\t\tFlow\t\tBandwidth\t\tPath");
 			for (FlowInfo fi : finalTrafficFlowAssignment) {
 				System.out.print("\t" + fi.getId());
@@ -93,6 +96,55 @@ public class Main {
 			}
 			System.out.println();
 		}
+		
+		// Segment Routing Algorithm.
+		SegmentRoutingCollection srCollection = new SegmentRoutingCollection();
+		deltaTimeSegmentRouting = System.currentTimeMillis();
+		
+		for (FlowInfo fi : finalTrafficFlowAssignment) {
+			Path assignedPath = fi.getPath();
+			Path naturalPath = SegmentRouting.getNaturalPath(graphBuilder.getGraph(), fi.getNodeSource(), fi.getNodeDestination());
+			try {
+				Node[] segments = SegmentRouting.getSegments(graphBuilder.getGraph(), assignedPath);
+				srCollection.addSegmentRoutingElement(fi, naturalPath, segments);
+				flowBuilder.addSegmentsToTrafficFlows(fi, segments);
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+				srCollection.addSegmentRoutingElement(fi, naturalPath, new Node[0]);
+				flowBuilder.addSegmentsToTrafficFlows(fi, new Node[0]);
+			}
+		}
+		deltaTimeSegmentRouting = System.currentTimeMillis() - deltaTimeSegmentRouting;
+		
+		if (DEBUG) {
+			System.out.println();
+			System.out.println("SEGMENT ROUTING ALGORITHM:");
+			System.out.println("Time used for Segment Routing: " + deltaTimeSegmentRouting);
+			
+			int countFlows = 0;
+			for (FlowInfo fi : srCollection.getFlowElements()) {
+				System.out.println("\tFlow: (" + fi.getNodeSource() + "," + fi.getNodeDestination() + "): " + fi.getId());
+				
+				Path assignedPath = srCollection.getAssignedPath(fi.getId());
+				Path naturalPath = srCollection.getNaturalPath(fi.getId());
+				
+				System.out.println("\t\tAssigned path:\t" + assignedPath + " --> Len = " + assignedPath.size());
+				System.out.println("\t\tNatural path:\t" + naturalPath + " --> Len = " + naturalPath.size());
+				
+				try {
+					Node[] segments = srCollection.getSegments(fi.getId());
+					System.out.println("\t\tSegments:\t" + Arrays.toString(segments) + " --> Len = " + segments.length);
+				}
+				catch (Exception e) {
+					System.err.println(e.getMessage());
+				}
+				System.out.println();
+				countFlows ++;
+			}
+			System.out.println("\tTotal Number of Flows: " + countFlows);
+		}
+		
 	}
 	
 
