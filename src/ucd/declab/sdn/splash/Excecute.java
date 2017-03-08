@@ -52,14 +52,21 @@ public class Excecute {
 	}
 
 	// Segment Routing Algorithm.
-	void excecuteSR() {
+	void excecuteSR(boolean isTE) {
+		SegmentRouting.isTE = isTE;
 		srCollection = new SegmentRoutingCollection();
-		Graph g = gb.getGraph();
+		
+		Graph g;
+		if (isTE)
+			g = finalGraph;
+		else
+			g = gb.getGraph();
 		
 		deltaTimeSegmentRouting = System.currentTimeMillis();
 		for (FlowInfo fi : finalTrafficFlowAssignment) {
 			Path assignedPath = fi.getPath();
 			Path naturalPath = SegmentRouting.getNaturalPath(g, fi.getNodeSource(), fi.getNodeDestination());
+			
 			try {
 				Node[] segments = SegmentRouting.getSegments(g, assignedPath);
 				srCollection.addSegmentRoutingElement(fi, naturalPath, segments);

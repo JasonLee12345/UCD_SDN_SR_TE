@@ -10,11 +10,13 @@ import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.Path;
 
+import ucd.declab.sdn.utils.Constants;
+
 public class SegmentRouting {
 
 	/** Whether working in debug mode */
 	protected static boolean DEBUG=false;
-
+	public static boolean isTE;
 	
 	/** Prints a debug message.
 	 * @param str the string to be printed */
@@ -81,7 +83,12 @@ public class SegmentRouting {
 		List<Node> ap_nodes=assigned_path.getNodePath();
 		Node src=ap_nodes.get(0);
 		Node dst=ap_nodes.get(ap_nodes.size()-1);
-		Iterator<Path> natural_paths=getNaturalPaths(graph,src.getId(),dst.getId()).iterator();
+		
+		Iterator<Path> natural_paths;
+		if (isTE)
+			natural_paths=getNaturalPaths(graph,src.getId(),dst.getId(), isTE).iterator();
+		else
+			natural_paths=getNaturalPaths(graph,src.getId(),dst.getId()).iterator();
 		
 		if (!natural_paths.hasNext()) throw new Exception("No natural path has been found");
 		// else, natural path exists
@@ -117,7 +124,13 @@ public class SegmentRouting {
 	 * @param dst the destination node
 	 * @return one equal-cost natural path between the two nodes */
 	public static Path getNaturalPath(Graph graph, String src, String dst) {
-		Iterator<Path> i=getNaturalPaths(graph,src,dst).iterator();
+		Iterator<Path> i;
+		
+		if (isTE)
+			i=getNaturalPaths(graph,src,dst, true).iterator();
+		else
+			i=getNaturalPaths(graph,src,dst).iterator();
+		
 		if (i.hasNext()) return i.next();
 		else return null;
 	}
@@ -168,7 +181,7 @@ public class SegmentRouting {
 		debug("getNaturalPaths(): src="+src+" dst="+dst);
 		Node src_node=graph.getNode(src);
 		Node dst_node=graph.getNode(dst);
-		Dijkstra dijstra=new Dijkstra();
+		Dijkstra dijstra=new Dijkstra(Dijkstra.Element.EDGE, "result", Constants.ATTRIBUTE_EDGE_COST);
 		dijstra.init(graph);
 		dijstra.setSource(src_node);
 		dijstra.compute();

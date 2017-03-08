@@ -208,6 +208,7 @@ public class GraphBuilder {
 		}
 	}
 	
+	public void setGraph(Graph g) { this.graph = g; }
 	public void setDirectedEdge(boolean directed) { this.isDirectedEdge = directed; }
 	
 	public boolean isDirectedEdge() { return this.isDirectedEdge; }
