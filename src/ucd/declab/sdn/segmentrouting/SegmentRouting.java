@@ -31,7 +31,8 @@ public class SegmentRouting {
 		List<Node> ap_nodes=assigned_path.getNodePath();
 		Node dst=ap_nodes.get(ap_nodes.size()-1);
 		ArrayList<Node> segments=new ArrayList<Node>();
-		Node segment;
+		Node segment=ap_nodes.get(0);
+		segments.add(segment);
 		while (!(segment=getFirstSegment(graph,assigned_path)).equals(dst)) {
 			segments.add(segment);
 			debug("getSegments(): segment: "+segment);
@@ -79,7 +80,7 @@ public class SegmentRouting {
 		debug("getFirstSegment(): assigned_path: "+assigned_path);
 		List<Node> ap_nodes=assigned_path.getNodePath();
 		Node src=ap_nodes.get(0);
-		Node dst=ap_nodes.get(ap_nodes.size()-1);	
+		Node dst=ap_nodes.get(ap_nodes.size()-1);
 		Iterator<Path> natural_paths=getNaturalPaths(graph,src.getId(),dst.getId()).iterator();
 		
 		if (!natural_paths.hasNext()) throw new Exception("No natural path has been found");
@@ -149,6 +150,21 @@ public class SegmentRouting {
 	 * @param dst the destination node
 	 * @return set of equal-cost shortest paths between the two nodes */
 	public static Iterable<Path> getNaturalPaths(Graph graph, String src, String dst) {
+		debug("getNaturalPaths(): src="+src+" dst="+dst);
+		Node src_node=graph.getNode(src);
+		Node dst_node=graph.getNode(dst);
+		Dijkstra dijstra=new Dijkstra();
+		dijstra.init(graph);
+		dijstra.setSource(src_node);
+		dijstra.compute();
+		Iterable<Path> paths=dijstra.getAllPaths(dst_node);
+		int count=0;
+		for (Path p : paths) debug("getNaturalPaths(): ECSP["+(count++)+"]: "+p);
+		return paths;
+	}
+	
+	
+	public static Iterable<Path> getNaturalPaths(Graph graph, String src, String dst, boolean TE) {
 		debug("getNaturalPaths(): src="+src+" dst="+dst);
 		Node src_node=graph.getNode(src);
 		Node dst_node=graph.getNode(dst);
