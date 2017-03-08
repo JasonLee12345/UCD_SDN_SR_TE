@@ -22,14 +22,22 @@ public class Main {
 	
 	/**
 	 * @param args
-	 * 	nodes_file=topology/nodes.json
-		links_file=topology/links.json
-		flows_file=flow/flow_catalogue.json
+	 * 	nodes_file=nodes.json
+		links_file=links.json
+		flows_file=flow_catalogue.json
 		debug=true
 	 */
 	public static void main(String[] args) {
 		Build build = new Build(args);
-		build.readFiles();
+		/**
+		 * Prefixes that can be selected from: 
+		 * Colt_2010_08-153N.
+		 * Example1.
+		 * Example2.
+		 * Example3.
+		 */
+		String filePrefix = "Example1.";
+		build.readFiles(filePrefix);
 		build.build();
 		
 		Excecute exce = new Excecute(build.graphBuilder, build.flowBuilder, build.DEBUG);

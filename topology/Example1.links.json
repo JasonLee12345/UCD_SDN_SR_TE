@@ -1,0 +1,82 @@
+[
+    [
+        "1", 
+        "2", 
+        {
+            "allocated": 0.0, 
+            "capacity": 10, 
+            "flows": [],
+            "id": "1" 
+        }
+    ], 
+    [
+        "1", 
+        "4", 
+        {
+            "allocated": 0.0,
+            "capacity": 10,
+            "flows": [],
+            "id": "2" 
+        }
+    ], 
+    [
+        "3", 
+        "2", 
+        {
+            "allocated": 0.0,
+            "capacity": 10,
+            "flows": [],
+            "id": "3" 
+        }
+    ], 
+    [
+        "4", 
+        "2", 
+        {
+            "allocated": 0.0,
+            "capacity": 10,
+            "flows": [],
+            "id": "4" 
+        }
+    ], 
+    [
+        "4", 
+        "5", 
+        {
+            "allocated": 0.0,
+            "capacity": 10,
+            "flows": [],
+            "id": "5" 
+        }
+    ], 
+    [
+        "3", 
+        "5", 
+        {
+            "allocated": 0.0,
+            "capacity": 10,
+            "flows": [],
+            "id": "6" 
+        }
+    ], 
+    [
+        "3", 
+        "6", 
+        {
+            "allocated": 0.0,
+            "capacity": 10,
+            "flows": [],
+            "id": "7" 
+        }
+    ], 
+    [
+        "6", 
+        "5", 
+        {
+            "allocated": 0.0,
+            "capacity": 10,
+            "flows": [],
+            "id": "8" 
+        }
+    ]
+]
