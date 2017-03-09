@@ -21,14 +21,14 @@
         {
             "allocated": 0.0, 
             "capacity": 1000, 
-            "dst_mac": "0200ac100003", 
-            "dst_port": "cro3-eth5", 
-            "dst_port_no": "0000000c", 
             "flows": [], 
             "id": "13901869055453418258", 
             "src_mac": "0200ac100005", 
             "src_port": "peo2-eth4", 
-            "src_port_no": "0000000a"
+            "src_port_no": "0000000a",
+            "dst_mac": "0200ac100003", 
+            "dst_port": "cro3-eth5", 
+            "dst_port_no": "0000000c"
         }
     ], 
     [

@@ -42,8 +42,9 @@ public class Main {
 		
 		Excecute exce = new Excecute(build.graphBuilder, build.flowBuilder, build.DEBUG);
 		exce.excecuteFAA();
-		exce.excecuteSR(false);
-		exce.DebugALL();
+		exce.DebugFAA();
+		//exce.excecuteSR(false);
+		//exce.DebugALL();
 	}
 	
 }

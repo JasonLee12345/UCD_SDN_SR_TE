@@ -3,21 +3,21 @@
         "1", 
         "6", 
         {
-            "id": "1", 
+            "id": "101", 
             "in": {
                 "allocated": false, 
-                "dstPort": "0000000f", 
+                "dstPort": "00000001", 
                 "path": [], 
-                "size": 5.21, 
-                "srcPort": "0000000c", 
+                "size": 10.21, 
+                "srcPort": "00000003",
                 "type": "vll"
             }, 
             "out": {
                 "allocated": false, 
-                "dstPort": "0000000c", 
+                "dstPort": "00000003", 
                 "path": [], 
-                "size": 3.25, 
-                "srcPort": "0000000f", 
+                "size": 20.25, 
+                "srcPort": "00000001", 
                 "type": "vll"
             }
         }

@@ -172,7 +172,8 @@ public class FlowAssignmentAlgorithm extends SinkAdapter implements DynamicAlgor
 			Node dest = innerTMP.getNode(f.getNodeDestination());
 			
 			String path = "";
-			for (Edge pathEdge : d.getPathEdges(dest)) {
+			Iterable<Edge> edges = d.getPathEdges(dest);
+			for (Edge pathEdge : edges) {
 				double load = inner.getEdge(pathEdge.getId()).getAttribute(Constants.ATTRIBUTE_EDGE_LOAD);
 				load += f.getBandwidth();
 				inner.getEdge(pathEdge.getId()).addAttribute(Constants.ATTRIBUTE_EDGE_LOAD, load);

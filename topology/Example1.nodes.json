@@ -1,7 +1,11 @@
 [
     [
         "6", 
-        {}
+        {
+        	"city": "Neuss", 
+            "country": "Germany", 
+            "type": "OSHI-CR"
+        }
     ], 
     [
         "5", 
