@@ -1,0 +1,83 @@
+graph {
+	canvas-color: black;
+	fill-mode: gradient-vertical;
+	fill-color: #001, #002;
+	padding: 20px;
+}
+node {
+	text-alignment: under;
+	text-background-mode: plain;
+	text-background-color: #CFCFCF;
+	text-color: #000;
+	text-style: bold;
+	text-padding: 3px;
+	text-offset: 0px, 3px;
+	fill-mode: plain;
+	size: 25px;
+}
+node:clicked {
+	fill-color: #F00A, #F000;
+}
+node.core_router {
+	shape: circle;
+	fill-mode: gradient-radial;
+	fill-color: white, #FFF0;
+}
+node.provider_edge_router {
+	shape: circle;
+	fill-mode: gradient-radial;
+	fill-color: orange, #FFF0;
+}
+node.customer_edge_router {
+	shape: circle;
+	fill-mode: gradient-radial;
+	fill-color: green, #FFF0;
+}
+edge {
+	size: 1px;
+	text-alignment: center;
+	text-background-mode: plain;
+	text-background-color: #CFCFCF;
+	text-color: #000;
+	text-style: bold;
+	text-padding: 3px;
+	text-offset: 0px, 3px;
+	fill-color: white;
+}
+sprite {
+	shape: flow;
+	size: 3px;
+	z-index: 0;
+}
+sprite.S1 {
+	fill-color: #F00;
+}
+sprite.S2 {
+	fill-color: #00F;
+}
+sprite.S3 {
+	fill-color: #0FF;
+}
+sprite.S4 {
+	fill-color: #0F0;
+}
+
+sprite.S5 {
+	fill-color: #FF0;
+}
+
+sprite.S6 {
+	fill-color: #F0F;
+}
+sprite.S7 {
+	fill-color: #123456;
+}
+sprite.S8 {
+	fill-color: #345612;
+}
+sprite.S9 {
+	fill-color: #561234;
+}
+sprite.S10 {
+	fill-color: #009999;
+}

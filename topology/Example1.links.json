@@ -1,0 +1,258 @@
+[
+    [
+        "1", 
+        "2", 
+        {
+            "allocated": 0.0, 
+            "capacity": 100.0, 
+            "flows": [],
+            "id": "001",
+            "src_mac": "0200ac100001", 
+            "src_port": "peo10-eth1", 
+            "src_port_no": "00000001",
+            "dst_mac": "0200ac100002", 
+            "dst_port": "cro4-eth1", 
+            "dst_port_no": "00000001"
+        }
+    ], 
+    [
+        "2", 
+        "1", 
+        {
+            "allocated": 0.0, 
+            "capacity": 100.0, 
+            "flows": [],
+            "id": "101",
+            "src_mac": "0200ac100002", 
+            "src_port": "cro4-eth1", 
+            "src_port_no": "00000001",
+            "dst_mac": "0200ac100001", 
+            "dst_port": "peo10-eth1", 
+            "dst_port_no": "00000001"
+        }
+    ], 
+    [
+        "1", 
+        "4", 
+        {
+            "allocated": 0.0,
+            "capacity": 100.0,
+            "flows": [],
+            "id": "002",
+            "src_mac": "0200ac100001", 
+            "src_port": "peo10-eth2", 
+            "src_port_no": "00000002",
+            "dst_mac": "0200ac100004", 
+            "dst_port": "cro4-eth2", 
+            "dst_port_no": "00000002"
+        }
+    ], 
+    [
+        "4", 
+        "1", 
+        {
+            "allocated": 0.0,
+            "capacity": 100.0,
+            "flows": [],
+            "id": "102",
+            "src_mac": "0200ac100004", 
+            "src_port": "cro4-eth2", 
+            "src_port_no": "00000002",
+            "dst_mac": "0200ac100001", 
+            "dst_port": "peo10-eth2", 
+            "dst_port_no": "00000002"
+        }
+    ], 
+    [
+        "3", 
+        "2", 
+        {
+            "allocated": 0.0,
+            "capacity": 100.0,
+            "flows": [],
+            "id": "003",
+            "src_mac": "0200ac100003", 
+            "src_port": "peo10-eth3", 
+            "src_port_no": "00000003",
+            "dst_mac": "0200ac100002", 
+            "dst_port": "cro4-eth3", 
+            "dst_port_no": "00000003"
+        }
+    ], 
+    [
+        "2", 
+        "3", 
+        {
+            "allocated": 0.0,
+            "capacity": 100.0,
+            "flows": [],
+            "id": "103",
+            "src_mac": "0200ac100002", 
+            "src_port": "cro4-eth3", 
+            "src_port_no": "00000003",
+            "dst_mac": "0200ac100003", 
+            "dst_port": "peo10-eth3", 
+            "dst_port_no": "00000003"
+        }
+    ], 
+    [
+        "4", 
+        "2", 
+        {
+            "allocated": 0.0,
+            "capacity": 100.0,
+            "flows": [],
+            "id": "004",
+            "src_mac": "0200ac100004", 
+            "src_port": "peo10-eth4", 
+            "src_port_no": "00000004",
+            "dst_mac": "0200ac100002", 
+            "dst_port": "cro4-eth4", 
+            "dst_port_no": "00000004"
+        }
+    ], 
+    [
+        "2", 
+        "4", 
+        {
+            "allocated": 0.0,
+            "capacity": 100.0,
+            "flows": [],
+            "id": "104",
+            "src_mac": "0200ac100002", 
+            "src_port": "cro4-eth4", 
+            "src_port_no": "00000004",
+            "dst_mac": "0200ac100004", 
+            "dst_port": "peo10-eth4", 
+            "dst_port_no": "00000004"
+        }
+    ],
+    [
+        "4", 
+        "5", 
+        {
+            "allocated": 0.0,
+            "capacity": 100.0,
+            "flows": [],
+            "id": "005",
+            "src_mac": "0200ac100004", 
+            "src_port": "peo10-eth5", 
+            "src_port_no": "00000005",
+            "dst_mac": "0200ac100005", 
+            "dst_port": "cro4-eth5", 
+            "dst_port_no": "00000005"
+        }
+    ], 
+    [
+        "5", 
+        "4", 
+        {
+            "allocated": 0.0,
+            "capacity": 100.0,
+            "flows": [],
+            "id": "105",
+            "src_mac": "0200ac100005", 
+            "src_port": "cro4-eth5", 
+            "src_port_no": "00000005",
+            "dst_mac": "0200ac100004", 
+            "dst_port": "peo10-eth5", 
+            "dst_port_no": "00000005"
+        }
+    ], 
+    [
+        "3", 
+        "5", 
+        {
+            "allocated": 0.0,
+            "capacity": 100.0,
+            "flows": [],
+            "id": "006",
+            "src_mac": "0200ac100003", 
+            "src_port": "peo10-eth6", 
+            "src_port_no": "00000006",
+            "dst_mac": "0200ac100005", 
+            "dst_port": "cro4-eth6", 
+            "dst_port_no": "00000006"
+        }
+    ], 
+    [
+        "5", 
+        "3", 
+        {
+            "allocated": 0.0,
+            "capacity": 100.0,
+            "flows": [],
+            "id": "106",
+            "src_mac": "0200ac100005", 
+            "src_port": "cro4-eth6", 
+            "src_port_no": "00000006",
+            "dst_mac": "0200ac100003", 
+            "dst_port": "peo10-eth6", 
+            "dst_port_no": "00000006"
+        }
+    ],
+    [
+        "3", 
+        "6", 
+        {
+            "allocated": 0.0,
+            "capacity": 100.0,
+            "flows": [],
+            "id": "007",
+            "src_mac": "0200ac100003", 
+            "src_port": "peo10-eth7", 
+            "src_port_no": "00000007",
+            "dst_mac": "0200ac100006", 
+            "dst_port": "cro4-eth7", 
+            "dst_port_no": "00000007"
+        }
+    ], 
+    [
+        "6", 
+        "3", 
+        {
+            "allocated": 0.0,
+            "capacity": 100.0,
+            "flows": [],
+            "id": "107",
+            "src_mac": "0200ac100007", 
+            "src_port": "cro4-eth7", 
+            "src_port_no": "00000007",
+            "dst_mac": "0200ac100003", 
+            "dst_port": "peo10-eth7", 
+            "dst_port_no": "00000007"
+        }
+    ], 
+    [
+        "6", 
+        "5", 
+        {
+            "allocated": 0.0,
+            "capacity": 100.0,
+            "flows": [],
+            "id": "008",
+            "src_mac": "0200ac100006", 
+            "src_port": "peo10-eth8", 
+            "src_port_no": "00000008",
+            "dst_mac": "0200ac100005", 
+            "dst_port": "cro4-eth8", 
+            "dst_port_no": "00000008"
+        }
+    ],
+    [
+        "5", 
+        "6", 
+        {
+            "allocated": 0.0,
+            "capacity": 100.0,
+            "flows": [],
+            "id": "108",
+            "src_mac": "0200ac100005", 
+            "src_port": "cro4-eth8", 
+            "src_port_no": "00000008",
+            "dst_mac": "0200ac100006", 
+            "dst_port": "peo10-eth8", 
+            "dst_port_no": "00000008"
+        }
+    ]
+]
