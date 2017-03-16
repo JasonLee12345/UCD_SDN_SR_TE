@@ -11,11 +11,11 @@ public class TopologyNodeDetails {
 	@SerializedName("y") private double latitude;
 
 	public TopologyNodeDetails() {
-		this.type = "";
-		this.country = "";
-		this.city = "";
-		this.longitude = 0.0;
-		this.latitude = 0.0;
+		//this.type = "";
+		//this.country = "";
+		//this.city = "";
+		//this.longitude = 0.0;
+		//this.latitude = 0.0;
 	}
 	
 	public TopologyNodeDetails(String type) {

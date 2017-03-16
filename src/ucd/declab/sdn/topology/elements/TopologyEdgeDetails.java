@@ -23,15 +23,15 @@ public class TopologyEdgeDetails {
 		this.allocated = 0.0;
 		this.capacity = 0.0;
 		this.flows = new ArrayList<Object>();
-		this.id = "";
-		this.view = "";
+		//this.id = "";
+		//this.view = "";
 		
-		this.dst_mac = "";
-		this.dst_port = "";
-		this.dst_port_no = "";
-		this.src_mac = "";
-		this.src_port = "";
-		this.src_port_no = "";
+		//this.dst_mac = "";
+		//this.dst_port = "";
+		//this.dst_port_no = "";
+		//this.src_mac = "";
+		//this.src_port = "";
+		//this.src_port_no = "";
 	}
 	
 	public TopologyEdgeDetails(double allo, double capa, String id) {

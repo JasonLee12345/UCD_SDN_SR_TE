@@ -16,6 +16,7 @@ import ucd.declab.sdn.flow.extracts.*;
 import ucd.declab.sdn.segmentrouting.*;
 import ucd.declab.sdn.topology.*;
 import ucd.declab.sdn.topology.extracts.*;
+import ucd.declab.sdn.utils.CreateJSONForBinaryTree;
 import ucd.declab.sdn.utils.Utilities;
 
 public class Main {
@@ -28,6 +29,9 @@ public class Main {
 		debug=true
 	 */
 	public static void main(String[] args) {
+		//CreateJSONForBinaryTree JSONFiles = new CreateJSONForBinaryTree(3);
+		//JSONFiles.generateAll();
+		
 		Build build = new Build(args);
 		/**
 		 * Prefixes that can be selected from: 
@@ -35,8 +39,9 @@ public class Main {
 		 * Example1.
 		 * Example2.
 		 * Example3.
+		 * BT2.
 		 */
-		String filePrefix = "Example1.";
+		String filePrefix = "BT3.";
 		build.readFiles(filePrefix);
 		build.build();
 		
@@ -44,6 +49,7 @@ public class Main {
 		exce.excecuteFAA();
 		exce.excecuteSR(false);
 		exce.DebugALL();
+		
 	}
 	
 }
