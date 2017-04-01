@@ -36,10 +36,10 @@ public class Build {
 		this.DEBUG = Boolean.parseBoolean(arguments.get(Utilities.DEBUG));
 	}
 	
-	public void readFiles(String fileExtension) {
-		rawNodes = Utilities.readJSONFileAsArrays("topology/" + fileExtension + nodesFile);
-		rawLinks = Utilities.readJSONFileAsArrays("topology/" + fileExtension + linksFile);
-		rawFlows = Utilities.readJSONFileAsPairs("flow/" +  fileExtension + flowsFile);
+	public void readFiles(String filePrefixTopo, String filePrefixFlow) {
+		rawNodes = Utilities.readJSONFileAsArrays("topology/" + filePrefixTopo + nodesFile);
+		rawLinks = Utilities.readJSONFileAsArrays("topology/" + filePrefixTopo + linksFile);
+		rawFlows = Utilities.readJSONFileAsPairs("flow/" +  filePrefixFlow + flowsFile);
 	}
 	
 	// Build the topology, graph and flows.

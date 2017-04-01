@@ -14,6 +14,14 @@ public class CreateJSONForBinaryTree {
 	// How many levels in the binary tree.
 	private int level;
 	
+	/**
+	 * One additional node 0 will be created linked to the root of the tree.
+	 * The purpose of this is to create a B-Tree with exact 2^n nodes.
+	 * So that the number of direct links in a B-Tree is 2^n-1.
+	 * Additionally, the graphs are bidirectional graphs, 
+	 * so that the final number of all links are 2*(2^n-1).
+	 * @param level, the power of 2, which is represent as n in the equation.
+	 */
 	public CreateJSONForBinaryTree(int level) {
 		this.level = level;
 	}
@@ -43,7 +51,7 @@ public class CreateJSONForBinaryTree {
 		
 		try {
 			   //write converted json data to a file named "CountryGSON.json"
-			   FileWriter writer = new FileWriter("topology/" + "BT" + Integer.toString(level) + ".nodes.json");
+			   FileWriter writer = new FileWriter("topology/experiments/" + "BT" + Integer.toString(level) + ".nodes.json");
 			   writer.write(json);
 			   writer.close();
 		} catch (IOException e) {
@@ -73,9 +81,9 @@ public class CreateJSONForBinaryTree {
 			}
 			
 			String id = new String("1000" + Integer.toString(i));
-			TopologyEdgeDetails ted = new TopologyEdgeDetails(0.0, 100.0, id);
+			TopologyEdgeDetails ted = new TopologyEdgeDetails(0.0, 1000.0, id);
 			String id1 = new String("1001" + Integer.toString(i));
-			TopologyEdgeDetails ted1 = new TopologyEdgeDetails(0.0, 100.0, id1);
+			TopologyEdgeDetails ted1 = new TopologyEdgeDetails(0.0, 1000.0, id1);
 			
 			innerList.add(src);
 			innerList.add(dst);
@@ -93,7 +101,7 @@ public class CreateJSONForBinaryTree {
 		
 		try {
 			   //write converted json data to a file named "CountryGSON.json"
-			   FileWriter writer = new FileWriter("topology/" + "BT" + Integer.toString(level) + ".links.json");
+			   FileWriter writer = new FileWriter("topology/experiments/" + "BT" + Integer.toString(level) + ".links.json");
 			   writer.write(json);
 			   writer.close();
 		} catch (IOException e) {

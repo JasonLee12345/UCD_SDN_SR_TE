@@ -48,7 +48,7 @@ public class Excecute {
 		
 		finalGraph = faa.getUpdatedGraph();
 		finalTrafficFlowAssignment = faa.getFlowAssignment();
-		gb.displayGraphWithFlows(finalGraph, finalTrafficFlowAssignment, false);
+		//gb.displayGraphWithFlows(finalGraph, finalTrafficFlowAssignment, false);
 	}
 
 	// Segment Routing Algorithm.
@@ -92,7 +92,7 @@ public class Excecute {
 	void DebugFAA() {
 		System.out.println("FLOW ASSIGNMENT ALGORITHM:");
 		System.out.println("Time used for Flow Assignment: " + deltaTimeFlowAssignment);
-		
+		/*
 		System.out.println("\tID\t\tFlow\t\tBandwidth\t\tPath");
 		for (FlowInfo fi : finalTrafficFlowAssignment) {
 			System.out.print("\t" + fi.getId());
@@ -111,7 +111,7 @@ public class Excecute {
 			}
 			System.out.println();
 		}
-		System.out.println();
+		System.out.println();*/
 	}
 
 	// Display the Segment Routing Algorithm results.
@@ -119,7 +119,7 @@ public class Excecute {
 		System.out.println();
 		System.out.println("SEGMENT ROUTING ALGORITHM:");
 		System.out.println("Time used for Segment Routing: " + deltaTimeSegmentRouting);
-		
+		/*
 		int countFlows = 0;
 		for (FlowInfo fi : srCollection.getFlowElements()) {
 			System.out.println("\tFlow: (" + fi.getNodeSource() + "," + fi.getNodeDestination() + "): " + fi.getId());
@@ -140,6 +140,6 @@ public class Excecute {
 			System.out.println();
 			countFlows ++;
 		}
-		System.out.println("\tTotal Number of Flows: " + countFlows);
+		System.out.println("\tTotal Number of Flows: " + countFlows);*/
 	}
 }

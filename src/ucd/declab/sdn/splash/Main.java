@@ -17,6 +17,7 @@ import ucd.declab.sdn.segmentrouting.*;
 import ucd.declab.sdn.topology.*;
 import ucd.declab.sdn.topology.extracts.*;
 import ucd.declab.sdn.utils.CreateJSONForBinaryTree;
+import ucd.declab.sdn.utils.CreateJSONForRandomFlows;
 import ucd.declab.sdn.utils.Utilities;
 
 public class Main {
@@ -29,20 +30,22 @@ public class Main {
 		debug=true
 	 */
 	public static void main(String[] args) {
-		//CreateJSONForBinaryTree JSONFiles = new CreateJSONForBinaryTree(3);
+		//CreateJSONForBinaryTree JSONFiles = new CreateJSONForBinaryTree(10);
 		//JSONFiles.generateAll();
+		
+		//CreateJSONForRandomFlows JSONFileFlow = new CreateJSONForRandomFlows(1024, 0, 255);
+		//JSONFileFlow.generateFlows(true, "f");
 		
 		Build build = new Build(args);
 		/**
 		 * Prefixes that can be selected from: 
 		 * Colt_2010_08-153N.
 		 * Example1.
-		 * Example2.
-		 * Example3.
-		 * BT2.
+		 * experiments/BT2.
 		 */
-		String filePrefix = "BT3.";
-		build.readFiles(filePrefix);
+		String filePrefixTopo = "experiments/BT8.";
+		String filePrefixFlow = "experiments/f/f1024.";
+		build.readFiles(filePrefixTopo, filePrefixFlow);
 		build.build();
 		
 		Excecute exce = new Excecute(build.graphBuilder, build.flowBuilder, build.DEBUG);

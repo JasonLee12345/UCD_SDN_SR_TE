@@ -7,7 +7,7 @@ public class FlowDetails {
 	private FlowDetailsEssential out;
 	
 	public FlowDetails() {
-		this.id = "";
+		//this.id = "";
 		this.in = new FlowDetailsEssential();
 		this.out = new FlowDetailsEssential();
 	}

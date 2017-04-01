@@ -1,0 +1,21 @@
+{
+	"0":[
+			"52",
+			"29",
+			{
+				"id":"100",
+				"in":{"allocated":false,"size":6.7969716893002365},
+				"out":{"allocated":false,"size":13.226738024812978}
+			}
+		],
+	"1":[
+			"16",
+			"33",
+			{
+				"id":"101",
+				"in":{"allocated":false,"size":3.990146897402689},
+				"out":{"allocated":false,"size":11.993160952549916}
+			}
+		],
+	"2":["18","2",{"id":"102","in":{"allocated":false,"size":2.451520000584578},"out":{"allocated":false,"size":1.454705592357578}}],
+	"3":["56","31",{"id":"103","in":{"allocated":false,"size":8.717441196013668},"out":{"allocated":false,"size":19.551020559055278}}]}

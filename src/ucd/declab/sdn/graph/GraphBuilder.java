@@ -154,7 +154,8 @@ public class GraphBuilder {
 		graph.addAttribute("ui.stylesheet", stylesheet);
 		
 		for (Node n : graph.getNodeSet()) {
-			n.addAttribute("ui.label", n.getId());
+			// Turn this on if you want to see the ID of nodes.
+			//n.addAttribute("ui.label", n.getId());
 			String type = n.getAttribute(Constants.ATTRIBUTE_NODE_TYPE);
 			if (type.equals(Constants.CORE_ROUTER)) {
 				n.addAttribute("ui.class", "core_router");
@@ -169,7 +170,8 @@ public class GraphBuilder {
 		
 		HashMap<String, GraphUtils.SpritePair> busy = new HashMap<>();
 		for (Edge e : graph.getEdgeSet()) {
-			e.addAttribute("ui.label", e.getAttribute(Constants.ATTRIBUTE_EDGE_LOAD) + " / " + e.getAttribute(Constants.ATTRIBUTE_EDGE_CAPACITY));
+			// Turn this on if you want to display the capacity and loads on every edge.
+			//e.addAttribute("ui.label", e.getAttribute(Constants.ATTRIBUTE_EDGE_LOAD) + " / " + e.getAttribute(Constants.ATTRIBUTE_EDGE_CAPACITY));
 			busy.put(e.getId(), new GraphUtils.SpritePair(1.0, false));
 		}
 		

@@ -7,8 +7,8 @@ public class Flow {
 	private FlowDetails flowDetails;
 	
 	public Flow() {
-		this.src = "";
-		this.dst = "";
+		//this.src = "";
+		//this.dst = "";
 		this.flowDetails = new FlowDetails();
 	}
 	
