@@ -2,8 +2,8 @@ package ucd.declab.sdn.utils;
 
 public class Constants {
 
-	public static final String CORE_ROUTER = "OSHICR";
-	public static final String PROVIDER_EDGE_ROUTER = "OSHIPE";
+	public static final String CORE_ROUTER = "CR";
+	public static final String PROVIDER_EDGE_ROUTER = "PE";
 	public static final String CUSTOMER_EDGE_ROUTER = "CE";
 	
 	public static final String ATTRIBUTE_NODE_TYPE = "node_type";
