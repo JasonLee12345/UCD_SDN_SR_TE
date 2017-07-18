@@ -10,6 +10,7 @@ import ucd.declab.sdn.flow.extracts.FlowInfo;
 
 public class SegmentRoutingCollection {
 
+	//SegmentRoutingCollectionElement is the innner class of this class for storing basic SR information.
 	private HashMap<FlowInfo, SegmentRoutingCollectionElement> collection = null;
 
 	public SegmentRoutingCollection() {
