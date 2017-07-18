@@ -4,7 +4,7 @@
         "1", 
         {
             "allocated": 0.0, 
-            "capacity": 1000, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100001", 
             "dst_port": "cro4-eth1", 
             "dst_port_no": "00000004", 
@@ -20,7 +20,7 @@
         "3", 
         {
             "allocated": 0.0, 
-            "capacity": 1000, 
+            "capacity": 10.0, 
             "flows": [], 
             "id": "13901869055453418258", 
             "src_mac": "0200ac100005", 
@@ -35,8 +35,8 @@
         "5", 
         "2", 
         {
-            "allocated": 0.0, 
-            "capacity": 1000, 
+            "allocated": 2.0, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100002", 
             "dst_port": "cro5-eth2", 
             "dst_port_no": "00000006", 
@@ -52,7 +52,7 @@
         "1", 
         {
             "allocated": 0.0, 
-            "capacity": 1000, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100001", 
             "dst_port": "cro4-eth4", 
             "dst_port_no": "0000000a", 
@@ -68,7 +68,7 @@
         "3", 
         {
             "allocated": 0.0, 
-            "capacity": 1000, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100003", 
             "dst_port": "cro3-eth3", 
             "dst_port_no": "00000004", 
@@ -83,8 +83,8 @@
         "4", 
         "2", 
         {
-            "allocated": 0.0, 
-            "capacity": 1000, 
+            "allocated": 2.0, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100002", 
             "dst_port": "cro5-eth3", 
             "dst_port_no": "00000008", 
@@ -100,7 +100,7 @@
         "1", 
         {
             "allocated": 0.0, 
-            "capacity": 1000, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100001", 
             "dst_port": "cro4-eth3", 
             "dst_port_no": "00000007", 
@@ -116,7 +116,7 @@
         "2", 
         {
             "allocated": 0.0, 
-            "capacity": 1000, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100002", 
             "dst_port": "cro5-eth1", 
             "dst_port_no": "00000005", 
@@ -132,7 +132,7 @@
         "1", 
         {
             "allocated": 0.0, 
-            "capacity": 1000, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100001", 
             "dst_port": "cro4-eth2", 
             "dst_port_no": "00000008", 
@@ -148,7 +148,7 @@
         "5", 
         {
             "allocated": 0.0, 
-            "capacity": 1000, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100005", 
             "dst_port": "peo2-eth4", 
             "dst_port_no": "0000000a", 
@@ -164,7 +164,7 @@
         "4", 
         {
             "allocated": 0.0, 
-            "capacity": 1000, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100004", 
             "dst_port": "peo6-eth1", 
             "dst_port_no": "00000005", 
@@ -180,7 +180,7 @@
         "3", 
         {
             "allocated": 0.0, 
-            "capacity": 1000, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100003", 
             "dst_port": "cro3-eth1", 
             "dst_port_no": "00000005", 
@@ -195,8 +195,8 @@
         "2", 
         "5", 
         {
-            "allocated": 0.0, 
-            "capacity": 1000, 
+            "allocated": 2.0, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100005", 
             "dst_port": "peo2-eth1", 
             "dst_port_no": "00000004", 
@@ -211,8 +211,8 @@
         "2", 
         "4", 
         {
-            "allocated": 0.0, 
-            "capacity": 1000, 
+            "allocated": 2.0, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100004", 
             "dst_port": "peo6-eth5", 
             "dst_port_no": "0000000b", 
@@ -228,7 +228,7 @@
         "3", 
         {
             "allocated": 0.0, 
-            "capacity": 1000, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100003", 
             "dst_port": "cro3-eth2", 
             "dst_port_no": "00000007", 
@@ -244,7 +244,7 @@
         "6", 
         {
             "allocated": 0.0, 
-            "capacity": 1000, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100006", 
             "dst_port": "peo10-eth2",
             "dst_port_no": "00000005", 
@@ -260,7 +260,7 @@
         "5", 
         {
             "allocated": 0.0, 
-            "capacity": 1000, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100005", 
             "dst_port": "peo2-eth3", 
             "dst_port_no": "00000008", 
@@ -276,7 +276,7 @@
         "4", 
         {
             "allocated": 0.0, 
-            "capacity": 1000, 
+            "capacity": 10.0, 
             "dst_mac": "0200ac100004", 
             "dst_port": "peo6-eth3", 
             "dst_port_no": "00000009", 

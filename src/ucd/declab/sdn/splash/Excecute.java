@@ -1,6 +1,8 @@
 package ucd.declab.sdn.splash;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
 
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
@@ -36,11 +38,27 @@ public class Excecute {
 		this.DEBUG = DEBUG;
 	}
 	
-	// Flow Assignment Algorithm.
-	void excecuteFAA() {
+	/**
+	 * Flow Assignment Algorithm.
+	 * @param isControlled, If this is set, the algorithm will control 
+	 * the number of flows that need to be assigned.
+	 * @param flowNum, The number of flows that we defined need to be assigned.
+	 */
+	void excecuteFAA(boolean isControlled, int flowNum) {
 		FlowAssignmentAlgorithm faa = new FlowAssignmentAlgorithm();
 		faa.init(gb.getGraph());
-		faa.setTrafficFlows(fb.getFlowCollection());
+		FlowCollection finalFlows = new FlowCollection();
+		FlowCollection fc = fb.getFlowCollection();
+		//int totalFlowNum = fc.size(); 
+		//System.out.println("totalFlowNum: " + totalFlowNum);
+		
+		if (isControlled) {
+			for (int i = 0; i < flowNum; ++i) {
+				finalFlows.add(fc.get(i));
+			}
+		} else finalFlows = fc;
+		
+		faa.setTrafficFlows(finalFlows);
 		deltaTimeFlowAssignment = System.currentTimeMillis();
 		faa.compute();
 		deltaTimeFlowAssignment = System.currentTimeMillis() - deltaTimeFlowAssignment;
@@ -49,6 +67,9 @@ public class Excecute {
 		finalGraph = faa.getUpdatedGraph();
 		finalTrafficFlowAssignment = faa.getFlowAssignment();
 		//gb.displayGraphWithFlows(finalGraph, finalTrafficFlowAssignment, false);
+
+		System.out.println("Total Number of Flows Need to be Assigned: " + flowNum);
+		System.out.println("Total Number of Flows Have been Assigned: " + finalTrafficFlowAssignment.size() + "\n");
 	}
 
 	// Segment Routing Algorithm.
@@ -91,9 +112,9 @@ public class Excecute {
 	// Display the Flow Assignment Algorithm results.
 	void DebugFAA() {
 		System.out.println("FLOW ASSIGNMENT ALGORITHM:");
-		System.out.println("Time used for Flow Assignment: " + deltaTimeFlowAssignment);
-		/*
-		System.out.println("\tID\t\tFlow\t\tBandwidth\t\tPath");
+		System.out.println("Time used for Flow Assignment: " + deltaTimeFlowAssignment + "\n");
+		
+		/*System.out.println("\tID\t\tFlow\t\tBandwidth\t\tPath");
 		for (FlowInfo fi : finalTrafficFlowAssignment) {
 			System.out.print("\t" + fi.getId());
 			System.out.print("\t\t(" + fi.getNodeSource() + "," + fi.getNodeDestination() + ")");
@@ -116,12 +137,63 @@ public class Excecute {
 
 	// Display the Segment Routing Algorithm results.
 	void DebugSR() {
-		System.out.println();
 		System.out.println("SEGMENT ROUTING ALGORITHM:");
-		System.out.println("Time used for Segment Routing: " + deltaTimeSegmentRouting);
-		/*
-		int countFlows = 0;
+		System.out.println("Time used for Segment Routing: " + deltaTimeSegmentRouting + "\n");
+		
+		/*HashMap<Integer, Integer> SRDistribution = new HashMap<Integer, Integer>();
 		for (FlowInfo fi : srCollection.getFlowElements()) {
+			try {
+				Node[] segments = srCollection.getSegments(fi.getId());
+				Integer num = SRDistribution.get(segments.length);
+				if (num == null) num = 1;
+				else num++;
+				SRDistribution.put(segments.length, num);
+			}
+			catch (Exception e) {
+				System.err.println(e.getMessage());
+			}
+		}
+		
+		Iterator it = SRDistribution.entrySet().iterator();
+	    while (it.hasNext()) {
+	    	HashMap.Entry pair = (HashMap.Entry)it.next();
+	        System.out.println("SR Path Length " + pair.getKey() + " = " + pair.getValue());
+	        it.remove();
+	    }*/
+	    
+		/*HashMap<Integer, Integer> TEDistribution = new HashMap<Integer, Integer>();
+		for (FlowInfo fi : srCollection.getFlowElements()) {
+			Path assignedPath = srCollection.getAssignedPath(fi.getId());
+			Integer num = TEDistribution.get(assignedPath.size());
+			if (num == null) num = 1;
+			else num++;
+			TEDistribution.put(assignedPath.size(), num);
+		}
+		
+		Iterator it = TEDistribution.entrySet().iterator();
+	    while (it.hasNext()) {
+	    	HashMap.Entry pair = (HashMap.Entry)it.next();
+	        System.out.println("TE Path Length " + pair.getKey() + " = " + pair.getValue());
+	        it.remove();
+	    }*/
+		
+		HashMap<Integer, Integer> NaturalDistribution = new HashMap<Integer, Integer>();
+		for (FlowInfo fi : srCollection.getFlowElements()) {
+			Path naturalPath = srCollection.getNaturalPath(fi.getId());
+			Integer num = NaturalDistribution.get(naturalPath.size());
+			if (num == null) num = 1;
+			else num++;
+			NaturalDistribution.put(naturalPath.size(), num);
+		}
+		
+		Iterator it = NaturalDistribution.entrySet().iterator();
+	    while (it.hasNext()) {
+	    	HashMap.Entry pair = (HashMap.Entry)it.next();
+	        System.out.println("Natural Path Length " + pair.getKey() + " = " + pair.getValue());
+	        it.remove();
+	    }
+		
+		/*for (FlowInfo fi : srCollection.getFlowElements()) {
 			System.out.println("\tFlow: (" + fi.getNodeSource() + "," + fi.getNodeDestination() + "): " + fi.getId());
 			
 			Path assignedPath = srCollection.getAssignedPath(fi.getId());
@@ -138,8 +210,6 @@ public class Excecute {
 				System.err.println(e.getMessage());
 			}
 			System.out.println();
-			countFlows ++;
-		}
-		System.out.println("\tTotal Number of Flows: " + countFlows);*/
+		}*/
 	}
 }

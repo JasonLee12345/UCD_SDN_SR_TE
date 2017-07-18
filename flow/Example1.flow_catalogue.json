@@ -6,18 +6,110 @@
             "id": "101", 
             "in": {
                 "allocated": false, 
-                "dstPort": "00000001", 
+                "dstPort": "", 
                 "path": [], 
-                "size": 10.21, 
-                "srcPort": "00000003",
+                "size": 0.0, 
+                "srcPort": "",
                 "type": "vll"
             }, 
             "out": {
                 "allocated": false, 
-                "dstPort": "00000003", 
+                "dstPort": "", 
                 "path": [], 
-                "size": 20.25, 
-                "srcPort": "00000001", 
+                "size": 3.1, 
+                "srcPort": "", 
+                "type": "vll"
+            }
+        }
+    ],
+    "1": [
+        "1", 
+        "3", 
+        {
+            "id": "102", 
+            "in": {
+                "allocated": false, 
+                "dstPort": "", 
+                "path": [], 
+                "size": 0.0, 
+                "srcPort": "",
+                "type": "vll"
+            }, 
+            "out": {
+                "allocated": false, 
+                "dstPort": "", 
+                "path": [], 
+                "size": 4.2, 
+                "srcPort": "", 
+                "type": "vll"
+            }
+        }
+    ],
+    "2": [
+        "1", 
+        "5", 
+        {
+            "id": "103", 
+            "in": {
+                "allocated": false, 
+                "dstPort": "", 
+                "path": [], 
+                "size": 0.0, 
+                "srcPort": "",
+                "type": "vll"
+            }, 
+            "out": {
+                "allocated": false, 
+                "dstPort": "", 
+                "path": [], 
+                "size": 3.4, 
+                "srcPort": "", 
+                "type": "vll"
+            }
+        }
+    ],
+    "3": [
+        "2", 
+        "5", 
+        {
+            "id": "104", 
+            "in": {
+                "allocated": false, 
+                "dstPort": "", 
+                "path": [], 
+                "size": 0.0, 
+                "srcPort": "",
+                "type": "vll"
+            }, 
+            "out": {
+                "allocated": false, 
+                "dstPort": "", 
+                "path": [], 
+                "size": 5.5, 
+                "srcPort": "", 
+                "type": "vll"
+            }
+        }
+    ],
+    "4": [
+        "2", 
+        "6", 
+        {
+            "id": "105", 
+            "in": {
+                "allocated": false, 
+                "dstPort": "", 
+                "path": [], 
+                "size": 0.0, 
+                "srcPort": "",
+                "type": "vll"
+            }, 
+            "out": {
+                "allocated": false, 
+                "dstPort": "", 
+                "path": [], 
+                "size": 5.5, 
+                "srcPort": "", 
                 "type": "vll"
             }
         }

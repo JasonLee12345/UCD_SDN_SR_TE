@@ -155,7 +155,7 @@ public class GraphBuilder {
 		
 		for (Node n : graph.getNodeSet()) {
 			// Turn this on if you want to see the ID of nodes.
-			//n.addAttribute("ui.label", n.getId());
+			n.addAttribute("ui.label", n.getId());
 			String type = n.getAttribute(Constants.ATTRIBUTE_NODE_TYPE);
 			if (type.equals(Constants.CORE_ROUTER)) {
 				n.addAttribute("ui.class", "core_router");
@@ -171,7 +171,7 @@ public class GraphBuilder {
 		HashMap<String, GraphUtils.SpritePair> busy = new HashMap<>();
 		for (Edge e : graph.getEdgeSet()) {
 			// Turn this on if you want to display the capacity and loads on every edge.
-			//e.addAttribute("ui.label", e.getAttribute(Constants.ATTRIBUTE_EDGE_LOAD) + " / " + e.getAttribute(Constants.ATTRIBUTE_EDGE_CAPACITY));
+			e.addAttribute("ui.label", e.getAttribute(Constants.ATTRIBUTE_EDGE_LOAD) + " / " + e.getAttribute(Constants.ATTRIBUTE_EDGE_CAPACITY));
 			busy.put(e.getId(), new GraphUtils.SpritePair(1.0, false));
 		}
 		
@@ -191,6 +191,7 @@ public class GraphBuilder {
 				}
 				busy.get(e.getId()).switchSignChange();
 				sp.setPosition(Units.PX, spriteX, spriteY, 0);
+				// Turn this on if you want to display the flow allocation.
 				sp.addAttribute("ui.class", "S" + spriteIdx);
 			}
 			if (spriteIdx <= 9) {

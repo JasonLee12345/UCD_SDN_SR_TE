@@ -4,7 +4,7 @@
         "2", 
         {
             "allocated": 0.0, 
-            "capacity": 100.0, 
+            "capacity": 10.0, 
             "flows": [],
             "id": "001",
             "src_mac": "0200ac100001", 
@@ -20,7 +20,7 @@
         "1", 
         {
             "allocated": 0.0, 
-            "capacity": 100.0, 
+            "capacity": 10.0, 
             "flows": [],
             "id": "101",
             "src_mac": "0200ac100002", 
@@ -36,7 +36,7 @@
         "4", 
         {
             "allocated": 0.0,
-            "capacity": 100.0,
+            "capacity": 10.0,
             "flows": [],
             "id": "002",
             "src_mac": "0200ac100001", 
@@ -52,7 +52,7 @@
         "1", 
         {
             "allocated": 0.0,
-            "capacity": 100.0,
+            "capacity": 10.0,
             "flows": [],
             "id": "102",
             "src_mac": "0200ac100004", 
@@ -68,7 +68,7 @@
         "2", 
         {
             "allocated": 0.0,
-            "capacity": 100.0,
+            "capacity": 10.0,
             "flows": [],
             "id": "003",
             "src_mac": "0200ac100003", 
@@ -84,7 +84,7 @@
         "3", 
         {
             "allocated": 0.0,
-            "capacity": 100.0,
+            "capacity": 10.0,
             "flows": [],
             "id": "103",
             "src_mac": "0200ac100002", 
@@ -100,7 +100,7 @@
         "2", 
         {
             "allocated": 0.0,
-            "capacity": 100.0,
+            "capacity": 10.0,
             "flows": [],
             "id": "004",
             "src_mac": "0200ac100004", 
@@ -116,7 +116,7 @@
         "4", 
         {
             "allocated": 0.0,
-            "capacity": 100.0,
+            "capacity": 10.0,
             "flows": [],
             "id": "104",
             "src_mac": "0200ac100002", 
@@ -132,7 +132,7 @@
         "5", 
         {
             "allocated": 0.0,
-            "capacity": 100.0,
+            "capacity": 10.0,
             "flows": [],
             "id": "005",
             "src_mac": "0200ac100004", 
@@ -148,7 +148,7 @@
         "4", 
         {
             "allocated": 0.0,
-            "capacity": 100.0,
+            "capacity": 10.0,
             "flows": [],
             "id": "105",
             "src_mac": "0200ac100005", 
@@ -164,7 +164,7 @@
         "5", 
         {
             "allocated": 0.0,
-            "capacity": 100.0,
+            "capacity": 10.0,
             "flows": [],
             "id": "006",
             "src_mac": "0200ac100003", 
@@ -180,7 +180,7 @@
         "3", 
         {
             "allocated": 0.0,
-            "capacity": 100.0,
+            "capacity": 10.0,
             "flows": [],
             "id": "106",
             "src_mac": "0200ac100005", 
@@ -196,7 +196,7 @@
         "6", 
         {
             "allocated": 0.0,
-            "capacity": 100.0,
+            "capacity": 10.0,
             "flows": [],
             "id": "007",
             "src_mac": "0200ac100003", 
@@ -212,7 +212,7 @@
         "3", 
         {
             "allocated": 0.0,
-            "capacity": 100.0,
+            "capacity": 10.0,
             "flows": [],
             "id": "107",
             "src_mac": "0200ac100007", 
@@ -228,7 +228,7 @@
         "5", 
         {
             "allocated": 0.0,
-            "capacity": 100.0,
+            "capacity": 10.0,
             "flows": [],
             "id": "008",
             "src_mac": "0200ac100006", 
@@ -244,7 +244,7 @@
         "6", 
         {
             "allocated": 0.0,
-            "capacity": 100.0,
+            "capacity": 10.0,
             "flows": [],
             "id": "108",
             "src_mac": "0200ac100005", 

@@ -42,14 +42,19 @@ public class Main {
 		 * Colt_2010_08-153N.
 		 * Example1.
 		 * experiments/BT2.
+		 * experiments/BT8.
 		 */
-		String filePrefixTopo = "experiments/BT8.";
-		String filePrefixFlow = "experiments/f/f1024.";
+		String filePrefixTopo = "Colt_2010_08-153N.";
+		/**
+		 * experiments/e/e64
+		 * experiments/f/f1024.
+		 */
+		String filePrefixFlow = "Colt_2010_08-153N.";
 		build.readFiles(filePrefixTopo, filePrefixFlow);
 		build.build();
 		
 		Excecute exce = new Excecute(build.graphBuilder, build.flowBuilder, build.DEBUG);
-		exce.excecuteFAA();
+		exce.excecuteFAA(true, 2400);
 		exce.excecuteSR(false);
 		exce.DebugALL();
 		
